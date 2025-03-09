@@ -22,6 +22,7 @@ const AppRoutes = () => {
                     element={<About />}
                 />
             </Route>
+            <Route path="*" element={<Navigate to="/home" />} />
         </Routes>
     )
 }

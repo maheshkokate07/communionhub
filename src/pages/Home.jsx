@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function Home() {
+const Home = () => {
     return (
         <div className="h-screen flex flex-col bg-gray-50">
 
@@ -28,3 +28,5 @@ export default function Home() {
         </div>
     );
 }
+
+export default Home;

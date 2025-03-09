@@ -3,13 +3,29 @@ import { Link } from "react-router-dom";
 import { IoMenuSharp } from "react-icons/io5";
 import { IoCloseSharp } from "react-icons/io5";
 
-export default function Header() {
+const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
+
+    const NavLink = ({ to, children, onClick }) => {
+        return (
+            <Link
+                to={to}
+                onClick={onClick}
+                className="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium"
+            >
+                {children}
+            </Link>
+        );
+    }
 
     return (
         <header className="w-full bg-white shadow-md">
-            <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-                <h1 className="text-2xl font-bold text-blue-600">CommunionHub</h1>
+            <div className="mx-auto px-6 sm:px-10 py-4 flex justify-between items-center">
+                <h1 className="text-2xl font-bold text-blue-600">
+                    <Link to="/home">
+                        CommunionHub
+                    </Link>
+                </h1>
 
                 <nav className="hidden sm:flex space-x-6">
                     <NavLink to="/">Home</NavLink>
@@ -35,14 +51,4 @@ export default function Header() {
     );
 }
 
-function NavLink({ to, children, onClick }) {
-    return (
-        <Link
-            to={to}
-            onClick={onClick}
-            className="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium"
-        >
-            {children}
-        </Link>
-    );
-}
+export default Header;
