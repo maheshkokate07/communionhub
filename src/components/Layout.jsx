@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
 
+// Common layout
 const Layout = () => {
     return (
         <div>

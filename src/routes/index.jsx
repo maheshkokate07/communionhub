@@ -4,9 +4,12 @@ import Home from "../pages/Home"
 import About from "../pages/About"
 import Events from "../pages/Events"
 
+// Routes
 const AppRoutes = () => {
     return (
         <Routes>
+
+            {/* Wrapped inside Common layout */}
             <Route element={<Layout />}>
                 <Route path="/" element={<Navigate to="/home" />} />
                 <Route
@@ -22,6 +25,8 @@ const AppRoutes = () => {
                     element={<About />}
                 />
             </Route>
+
+            {/* Redirect unknown paths to /home */}
             <Route path="*" element={<Navigate to="/home" />} />
         </Routes>
     )

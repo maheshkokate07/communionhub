@@ -6,9 +6,11 @@ const eventSlice = createSlice({
         events: []
     },
     reducers: {
+        // Slice for adding event
         addEvent: (state, action) => {
             state.events.push(action.payload);
         },
+        // Slice for removing event
         removeEvent: (state, action) => {
             state.events = state?.events?.filter((event) => event?.id !== action.payload);
         }

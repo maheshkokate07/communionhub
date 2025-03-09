@@ -8,6 +8,7 @@ const persistConfig = {
     storage
 }
 
+// Persist redux state to store events even after page reload
 const persistedEventReducer = persistReducer(persistConfig, eventReducer);
 
 export const store = configureStore({

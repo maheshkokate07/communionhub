@@ -4,18 +4,26 @@ import CreateEventModal from "../components/CreateEventModal";
 import { useDispatch, useSelector } from "react-redux";
 import { addEvent } from "../store/slices/eventSlice";
 
+// Events page to display events
 const Events = () => {
 
     const dispatch = useDispatch();
+
+    // Fetch events from store
     const events = useSelector((state) => state?.event?.events);
 
     const [category, setCategory] = useState("");
     const [isModalOpen, setIsModalOpen] = useState(false);
 
+    // Filter events based on category
     const filteredEvents = category ? events.filter(event => event.category === category) : events;
 
+    // Function for add event
     const handleAddEvent = (newEvent) => {
+        // Create an unique id for event
         const id = events[events.length - 1]?.id + 1 || 0;
+
+        // Dispatch addEvent slice
         dispatch(addEvent({ ...newEvent, id: id }));
     }
 
@@ -25,6 +33,7 @@ const Events = () => {
 
             <div className="flex flex-col justify-between sm:flex-row items-center gap-4 mb-4">
                 <select
+                    // Disable filter when there are no events
                     disabled={events?.length === 0}
                     onChange={(e) => setCategory(e.target.value)}
                     className={`p-2 border border-gray-300 rounded cursor-pointer w-full md:w-auto disabled:opacity-40 disabled:cursor-not-allowed`}
@@ -44,10 +53,11 @@ const Events = () => {
             </div>
 
             {
-                events?.length === 0 && <div className="text-center text-lg font-semibold pt-4">No events available</div>
+                events?.length === 0 && <div className="text-center text-lg font-semibold pt-4 text-blue-700">No events available</div>
             }
 
-            <div className="grid md:grid-cols-2 gap-4">
+            {/* Map events using event item */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {filteredEvents.map((event, index) => (
                     <EventItem key={index} {...event} />
                 ))}

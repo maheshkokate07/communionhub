@@ -4,8 +4,10 @@ import { IoMenuSharp } from "react-icons/io5";
 import { IoCloseSharp } from "react-icons/io5";
 
 const Header = () => {
+
     const [isOpen, setIsOpen] = useState(false);
 
+    // Navlink function to render a single navlink
     const NavLink = ({ to, children, onClick }) => {
         return (
             <Link

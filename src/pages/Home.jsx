@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+// Home component
 const Home = () => {
     return (
         <div className="h-screen flex flex-col bg-gray-50">

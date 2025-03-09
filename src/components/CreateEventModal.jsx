@@ -1,6 +1,9 @@
 import { useState } from "react";
 
+// Custom modal for create event form
 const CreateEventModal = ({ isOpen, onClose, callbackFun }) => {
+
+    // State for event data
     const [eventData, setEventData] = useState({
         title: "",
         date: "",
@@ -11,6 +14,7 @@ const CreateEventModal = ({ isOpen, onClose, callbackFun }) => {
 
     if (!isOpen) return null;
 
+    // Handle submit for adding event
     const handleSubmit = (e) => {
         e.preventDefault();
         callbackFun(eventData);
